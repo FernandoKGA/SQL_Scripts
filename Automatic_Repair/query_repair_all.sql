@@ -13,7 +13,7 @@ BEGIN
     DECLARE temp_name varchar(64) DEFAULT NULL;
 
     /* CREATES TEMPORARY TABLE TO GET THE TABLE NAMES */
-    CREATE TEMPORARY TABLE Temp SELECT @n := @n + 1 n,a.table_name FROM information_schema.tables a , (SELECT @n := 0) m WHERE a.table_schema = 'Resimapinv';
+    CREATE TEMPORARY TABLE Temp SELECT @n := @n + 1 n,a.table_name FROM information_schema.tables a , (SELECT @n := 0) m WHERE a.table_schema = 'mydatabase';
     SET maximum = (SELECT COUNT(*) FROM Temp);
 
     WHILE i <= maximum DO
